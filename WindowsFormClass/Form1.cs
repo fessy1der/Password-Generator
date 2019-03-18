@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Text;
+using System.Threading;
+using System.Windows.Forms;
 
 namespace WindowsFormClass
 {
@@ -7,7 +9,16 @@ namespace WindowsFormClass
     {
         public Form1()
         {
+            Thread thread = new Thread(new ThreadStart(formRun));
+            thread.Start();
+            Thread.Sleep(3000);
             InitializeComponent();
+            thread.Abort();
+        }
+
+        private void formRun()
+        {
+            Application.Run(new Form_Splash());
         }
 
         private void Form1_Load(object sender, EventArgs e)
