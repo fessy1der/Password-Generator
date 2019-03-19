@@ -42,6 +42,7 @@
             this.radioNumbers = new MetroFramework.Controls.MetroRadioButton();
             this.radioAlphaNum = new MetroFramework.Controls.MetroRadioButton();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,7 +71,7 @@
             // 
             this.txtWord.Location = new System.Drawing.Point(308, 243);
             this.txtWord.Name = "txtWord";
-            this.txtWord.Size = new System.Drawing.Size(200, 23);
+            this.txtWord.Size = new System.Drawing.Size(167, 33);
             this.txtWord.TabIndex = 8;
             this.txtWord.Theme = MetroFramework.MetroThemeStyle.Dark;
             // 
@@ -116,14 +117,14 @@
             // 
             this.txtMin.Location = new System.Drawing.Point(421, 152);
             this.txtMin.Name = "txtMin";
-            this.txtMin.Size = new System.Drawing.Size(87, 23);
+            this.txtMin.Size = new System.Drawing.Size(97, 23);
             this.txtMin.TabIndex = 1;
             // 
             // txtMax
             // 
             this.txtMax.Location = new System.Drawing.Point(421, 196);
             this.txtMax.Name = "txtMax";
-            this.txtMax.Size = new System.Drawing.Size(87, 23);
+            this.txtMax.Size = new System.Drawing.Size(97, 23);
             this.txtMax.TabIndex = 2;
             // 
             // radioAlphabet
@@ -175,11 +176,24 @@
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel1.VerticalScrollbarSize = 10;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Segoe UI Emoji", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(485, 243);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(33, 33);
+            this.button1.TabIndex = 9;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.metroPanel1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnGenerate);
@@ -222,6 +236,7 @@
         private MetroFramework.Controls.MetroRadioButton radioNumbers;
         private MetroFramework.Controls.MetroRadioButton radioAlphaNum;
         private MetroFramework.Controls.MetroPanel metroPanel1;
+        private System.Windows.Forms.Button button1;
     }
 }
 

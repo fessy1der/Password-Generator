@@ -78,5 +78,10 @@ namespace WindowsFormClass
             radioAlphaNum.Checked = false;
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Clipboard.SetText(txtWord.Text);
+        }
     }
 }
