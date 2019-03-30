@@ -14,6 +14,7 @@ namespace WindowsFormClass
             Thread.Sleep(3000);
             InitializeComponent();
             thread.Abort();
+            this.StyleManager = metroStyleManager1;
         }
 
         private void formRun()
@@ -82,6 +83,18 @@ namespace WindowsFormClass
         private void button1_Click(object sender, EventArgs e)
         {
             Clipboard.SetText(txtWord.Text);
+        }
+
+        private void btnLight_Click(object sender, EventArgs e)
+        {
+            metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Light;
+        }
+
+        private void btnDark_Click(object sender, EventArgs e)
+        {
+            metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
+            pictureBox1.BackColor = metroPanel2.BackColor;
+            var color = pictureBox1.BackColor.ToString();
         }
     }
 }
