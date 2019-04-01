@@ -9,12 +9,18 @@ namespace WindowsFormClass
     {
         public Form1()
         {
+            //Initialize splash screen and end after timer
             Thread thread = new Thread(new ThreadStart(formRun));
             thread.Start();
             Thread.Sleep(3000);
-            InitializeComponent();
             thread.Abort();
+            InitializeComponent();
+
+            //Hide password characters
+            txtWord.PasswordChar = '*';
+
             this.StyleManager = metroStyleManager1;
+            
         }
 
         private void formRun()
@@ -95,6 +101,19 @@ namespace WindowsFormClass
             metroStyleManager1.Theme = MetroFramework.MetroThemeStyle.Dark;
             pictureBox1.BackColor = metroPanel2.BackColor;
             var color = pictureBox1.BackColor.ToString();
+        }
+
+        private void btnViewPasswords_Click(object sender, EventArgs e)
+        {
+            //this.Hide();
+            FormPassword formPassword = new FormPassword();
+            formPassword.ShowDialog();
+        }
+
+        private void btnSiteAdd_Click(object sender, EventArgs e)
+        {
+            FormAddSite formAddSite = new FormAddSite();
+            formAddSite.Show();
         }
     }
 }
