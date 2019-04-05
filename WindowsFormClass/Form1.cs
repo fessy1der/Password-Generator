@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+
 
 namespace WindowsFormClass
 {
@@ -30,6 +32,10 @@ namespace WindowsFormClass
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            using (ModelContext db = new ModelContext())
+            {
+                siteBindingSource.DataSource = db.SiteList.ToList();
+            }
         }
 
         private void btnGenerate_Click(object sender, EventArgs e)
@@ -114,6 +120,25 @@ namespace WindowsFormClass
         {
             FormAddSite formAddSite = new FormAddSite();
             formAddSite.Show();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            using(ModelContext db = new ModelContext())
+            {
+                Site obj = siteBindingSource.Current as Site;
+                if (obj != null)
+                {
+                    if (db.Entry<Site>(obj).State == System.Data.Entity.EntityState.Detached)
+                        db.Set<Site>().Attach(obj);
+                    if (obj.ObjectState == 1)
+                        db.Entry<Site>(obj).State = System.Data.Entity.EntityState.Added;
+                    if (obj.ObjectState == 2)
+                        db.Entry<Site>(obj).State = System.Data.Entity.EntityState.Modified;
+                    db.SaveChanges();
+                    obj.ObjectState = 0;
+                }
+            }
         }
     }
 }

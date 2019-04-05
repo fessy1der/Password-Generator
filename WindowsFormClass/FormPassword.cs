@@ -8,6 +8,9 @@ namespace WindowsFormClass
         public FormPassword()
         {
             InitializeComponent();
+
+            //hide password 
+            txtPassword.PasswordChar = '*';
         }
 
         private void FormPassword_Load(object sender, EventArgs e)

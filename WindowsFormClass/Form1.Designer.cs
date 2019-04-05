@@ -54,10 +54,12 @@
             this.txtMax = new MetroFramework.Controls.MetroTextBox();
             this.txtMin = new MetroFramework.Controls.MetroTextBox();
             this.txtWord = new MetroFramework.Controls.MetroTextBox();
+            this.siteBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.metroStyleManager1)).BeginInit();
             this.metroPanel2.SuspendLayout();
             this.metroPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.siteBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -174,6 +176,7 @@
             this.btnSave.Size = new System.Drawing.Size(51, 22);
             this.btnSave.TabIndex = 13;
             this.btnSave.Text = "Save";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblSites
             // 
@@ -188,6 +191,7 @@
             // 
             // comboSites
             // 
+            this.comboSites.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.siteBindingSource, "SiteName", true));
             this.comboSites.FormattingEnabled = true;
             this.comboSites.ItemHeight = 23;
             this.comboSites.Location = new System.Drawing.Point(370, 130);
@@ -308,11 +312,16 @@
             // 
             // txtWord
             // 
+            this.txtWord.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.siteBindingSource, "Password", true));
             this.txtWord.Location = new System.Drawing.Point(308, 260);
             this.txtWord.Name = "txtWord";
             this.txtWord.Size = new System.Drawing.Size(167, 33);
             this.txtWord.TabIndex = 8;
             this.txtWord.Theme = MetroFramework.MetroThemeStyle.Dark;
+            // 
+            // siteBindingSource
+            // 
+            this.siteBindingSource.DataSource = typeof(WindowsFormClass.Site);
             // 
             // Form1
             // 
@@ -334,6 +343,7 @@
             this.metroPanel2.PerformLayout();
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.siteBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -364,6 +374,7 @@
         private MetroFramework.Controls.MetroComboBox comboSites;
         private MetroFramework.Controls.MetroButton btnSiteAdd;
         private MetroFramework.Controls.MetroButton btnViewPasswords;
+        private System.Windows.Forms.BindingSource siteBindingSource;
     }
 }
 
